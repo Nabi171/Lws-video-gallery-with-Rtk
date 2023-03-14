@@ -4,9 +4,7 @@ import VideoLoader from "../ui/loaders/VideoLoader";
 import Video from "./Video";
 
 export default function Videos() {
-    const { data: videos, isLoading, isError, refetch } = useGetVideosQuery(undefined, {
-        pollingInterval: 3000,
-    });
+    const { data: videos, isLoading, isError } = useGetVideosQuery();
 
     // decide what to render
     let content = null;
@@ -26,12 +24,12 @@ export default function Videos() {
         content = <Error message="There was an error" />;
     }
 
-    if (!isLoading && !isError && videos ?.length === 0) {
+    if (!isLoading && !isError && videos?.length === 0) {
         content = <Error message="No videos found!" />;
     }
 
-    if (!isLoading && !isError && videos ?.length > 0) {
-        content = videos.map((video) => <Video key={video.id} video={video} refetch={refetch} />);
+    if (!isLoading && !isError && videos?.length > 0) {
+        content = videos.map((video) => <Video key={video.id} video={video} />);
     }
 
     return content;

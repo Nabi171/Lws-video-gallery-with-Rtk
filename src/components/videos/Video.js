@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import authorImage from "../../assets/author.png";
 
-export default function Video({ video, refetch }) {
+export default function Video({ video }) {
     const { id, title, duration, author, views, date, thumbnail } = video;
 
     return (
@@ -16,7 +16,7 @@ export default function Video({ video, refetch }) {
                         />
                     </Link>
 
-                    <p onClick={refetch} className="absolute right-2 bottom-2 bg-gray-900 text-gray-100 text-xs px-1 py">
+                    <p className="absolute right-2 bottom-2 bg-gray-900 text-gray-100 text-xs px-1 py">
                         {duration}
                     </p>
                 </div>
