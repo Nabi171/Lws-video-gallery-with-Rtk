@@ -26,7 +26,7 @@ export default function Video() {
         content = <Error message="There was an error!" />;
     }
 
-    if (!isLoading && !isError && video?.id) {
+    if (!isLoading && !isError && video ?.id) {
         content = (
             <>
                 <Player link={video.link} title={video.title} />
@@ -43,7 +43,7 @@ export default function Video() {
                         {content}
                     </div>
 
-                    {video?.id ? (
+                    {video ?.id ? (
                         <RelatedVideos id={video.id} title={video.title} />
                     ) : isLoading ? (
                         <>
@@ -52,8 +52,8 @@ export default function Video() {
                             <RelatedVideoLoader />
                         </>
                     ) : (
-                        <Error message="There was an error!" />
-                    )}
+                                <Error message="There was an error!" />
+                            )}
                 </div>
             </div>
         </section>
