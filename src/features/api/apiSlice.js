@@ -47,6 +47,14 @@ export const apiSlice = createApi({
                 { type: "RelatedVideos", id: arg.id },
             ],
         }),
+        deleteVideo: builder.mutation({
+            query: ({ id, data }) => ({
+                url: `/videos/${id}`,
+                method: "DELETE",
+
+            }),
+            invalidatesTags: ["Videos"],
+        }),
     }),
 });
 
